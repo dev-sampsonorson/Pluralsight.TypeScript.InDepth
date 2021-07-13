@@ -1,0 +1,36 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "cls"
+        },
+        {
+            "dependsOn": [
+                "echo"
+            ],
+            "label": "Build .ts",
+            "type": "shell",
+            "command": "tsc",
+            "args": [
+                "--target",
+                "ES5",
+                "--outDir",
+                "js",
+                "--module",
+                "commonjs",
+                "--sourceMap",
+                "--watch",
+                "app.ts"
+            ],
+            "problemMatcher": "$tsc",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
